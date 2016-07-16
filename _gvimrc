@@ -1,0 +1,8 @@
+source $VIMRUNTIME/gvimrc_example.vim
+
+if has("gui_macvim")
+    set guifont=Monaco:h12
+endif
+
+set background=dark
+
