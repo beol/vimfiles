@@ -22,8 +22,10 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-set wrap
+set nowrap
 set colorcolumn=80
+set mouse=
+set clipboard=unnamed
 
 colorscheme koehler
 set background=dark
