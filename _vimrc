@@ -29,15 +29,16 @@ colorscheme koehler
 set background=dark
 
 inoremap jk <esc>
-vnoremap jk <esc>
 let mapleader="\<space>"
+
+map <silent> <leader>cd :lcd %:h<CR>
 
 map <leader>n :NERDTreeToggle<CR>
 map <leader>/ <plug>NERDCommenterToggle<CR>
-map <leader>ew :e ./
-map <leader>es :sp ./
-map <leader>ev :vsplit ./
-map <leader>et :tabe ./
+map <leader>ee :e <C-R>=expand('%:h').'/'<CR>
+map <leader>es :sp <C-R>=expand('%:h').'/'<CR>
+map <leader>ev :vsplit <C-R>=expand('%:h').'/'<CR>
+map <leader>et :tabe <C-R>=expand('%:h').'/'<CR>
 
 nmap <leader>l >>
 nmap <leader>h <<
