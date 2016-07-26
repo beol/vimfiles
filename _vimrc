@@ -23,27 +23,46 @@ set incsearch
 set showmatch
 set hlsearch
 set nowrap
-set colorcolumn=80
+set textwidth=80
+set colorcolumn=+1
 set mouse=
-set clipboard=unnamed
+"set clipboard=unnamed
 
 colorscheme koehler
 set background=dark
 
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
+
+inoremap <esc> <nop>
 inoremap jk <esc>
+
 let mapleader="\<space>"
 
-map <silent> <leader>cd :lcd %:h<CR>
+nnoremap <silent> <leader>cd :lcd %:h<CR>
 
-map <leader>n :NERDTreeToggle<CR>
-map <leader>/ <plug>NERDCommenterToggle<CR>
-map <leader>ee :e <C-R>=expand('%:h').'/'<CR>
-map <leader>es :sp <C-R>=expand('%:h').'/'<CR>
-map <leader>ev :vsplit <C-R>=expand('%:h').'/'<CR>
-map <leader>et :tabe <C-R>=expand('%:h').'/'<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>/ <plug>NERDCommenterToggle<CR>
+nnoremap <leader>ee :e <C-R>=expand('%:h').'/'<CR>
+nnoremap <leader>es :sp <C-R>=expand('%:h').'/'<CR>
+nnoremap <leader>ev :vsplit <C-R>=expand('%:h').'/'<CR>
+nnoremap <leader>et :tabe <C-R>=expand('%:h').'/'<CR>
 
-nmap <leader>l >>
-nmap <leader>h <<
+nnoremap <leader>W :set wrap!<CR>
+nnoremap <leader>N :setlocal number!<CR>
+
+nnoremap <leader>l >>
+nnoremap <leader>h <<
+
+nnoremap <leader>qq :q!<CR>
+nnoremap <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>wq :wq!<CR>
+nnoremap <leader>ww :w!<CR>
 
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype puppet setlocal ts=2 sts=2 sw=2
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
