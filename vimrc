@@ -27,6 +27,8 @@ set textwidth=80
 set colorcolumn=+1
 set mouse=
 "set clipboard=unnamed
+set nobackup
+set noswapfile
 
 colorscheme koehler
 set background=dark
@@ -65,6 +67,7 @@ nnoremap <leader>qq :q!<CR>
 nnoremap <leader>sv :so $MYVIMRC<CR>
 nnoremap <leader>wq :wq!<CR>
 nnoremap <leader>ww :w!<CR>
+nnoremap <leader>qa :qa!<CR>
 
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype puppet setlocal ts=2 sts=2 sw=2
