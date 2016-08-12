@@ -23,10 +23,11 @@ set incsearch
 set showmatch
 set hlsearch
 set nowrap
-set textwidth=80
-set colorcolumn=+1
+set colorcolumn=80
 set mouse=
-"set clipboard=unnamed
+if has("win32")
+    set clipboard=unnamed
+end
 set nobackup
 set noswapfile
 
