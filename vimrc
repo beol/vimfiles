@@ -27,6 +27,8 @@ set colorcolumn=80
 set mouse=
 if has("win32")
     set clipboard=unnamed
+elseif has("gui_macvim")
+    set clipboard=unnamed
 end
 set nobackup
 set noswapfile
@@ -73,8 +75,11 @@ nnoremap <leader>qa :qa!<CR>
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype puppet setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
+autocmd Filetype json setlocal ts=2 sts=2 sw=2 noexpandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype spec setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+au BufNewFile,BufRead /*nagios_cfg/*.cfg,/*nagios_cfg/etc/**/*.cfg,/*etc/nagios/*.cfg,*sample-config/template-object/*.cfg{,.in},/var/lib/nagios/objects.cache set filetype=nagios
