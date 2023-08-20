@@ -33,7 +33,7 @@ end
 set nobackup
 set noswapfile
 
-colorscheme koehler
+colorscheme molokai
 set background=dark
 
 noremap <up> <nop>
@@ -47,7 +47,7 @@ nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 
 "inoremap <esc> <nop>
-inoremap jk <esc>
+inoremap jj <esc>
 
 let mapleader="\<space>"
 
@@ -75,10 +75,13 @@ nnoremap <leader>qa :qa!<CR>
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype puppet setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype html setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype eruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4 expandtab
 autocmd Filetype json setlocal ts=2 sts=2 sw=2 noexpandtab
 autocmd Filetype yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd Filetype spec setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd Filetype css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd Filetype scss setlocal ts=2 sts=2 sw=2 expandtab
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
